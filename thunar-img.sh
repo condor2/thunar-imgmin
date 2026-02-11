@@ -45,7 +45,7 @@ get_opts() {
 resize() {
 
 	while (( "$#" )); do  
-		magick "$1" -resize "$PERCENT%" -quality 100 "resized_to_${PERCENT}%_$1"
+		magick "$1" -resize "$PERCENT%" -quality 100 "resized_to_${PERCENT}pct_$1"
 		shift
 	done
 
