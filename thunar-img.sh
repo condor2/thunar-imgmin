@@ -45,7 +45,7 @@ get_opts() {
 resize() {
 
 	while (( "$#" )); do  
-		convert "$1" -resize "$PERCENT%" -quality 100 "resized_to_${PERCENT}%_$1"
+		magick "$1" -resize "$PERCENT%" -quality 100 "resized_to_${PERCENT}%_$1"
 		shift
 	done
 
@@ -57,12 +57,12 @@ rotate() {
 
 	case "$DIRECTION" in
 	  -r|--right)	while (( "$#" )); do
-	      		convert -rotate 90 -quality 100 "$1" "$1" 
+	      		magick "$1" -rotate 90 -quality 100 "$1"
 	      		shift
 	    	done
 	  ;;
 	  -l|--left)	while (( "$#" )); do
-	      		convert -rotate -90 -quality 100 "$1" "$1"
+	      		magick "$1" -rotate -90 -quality 100 "$1"
 	      		shift
 	    	done
 	  ;;
